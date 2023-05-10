@@ -2,7 +2,6 @@ package com.example10;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -11,9 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class Main {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.scan("com.example10");
-        applicationContext.refresh();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.example10");
         ActorSystem actorSystem = applicationContext.getBean(ActorSystem.class);
         ActorRef actor = actorSystem.actorOf(SpringExtProvider.getInstance().get(actorSystem).createProps("actorDemo"), "actorDemo");
         actor.tell("一条消息", ActorRef.noSender()) ;
