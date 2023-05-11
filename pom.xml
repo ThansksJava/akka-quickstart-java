@@ -68,7 +68,7 @@
                     <arguments>
                         <argument>-classpath</argument>
                         <classpath />
-                        <argument>com.example.AkkaQuickstart</argument>
+                        <argument>com.learn1.example.AkkaQuickstart</argument>
                     </arguments>
                 </configuration>
             </plugin>
